@@ -4,8 +4,6 @@ const ResultsTable = (props) => {
 	const { inputData } = props;
 	const { initialInvestment } = inputData;
 	const results = calculateInvestmentResults(inputData);
-	console.error('inputData', inputData);
-	console.error('results', results);
 	return (
 		<table id="result">
 			<thead>
