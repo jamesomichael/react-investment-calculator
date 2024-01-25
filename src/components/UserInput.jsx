@@ -20,6 +20,7 @@ const UserInput = (props) => {
 						type="number"
 						defaultValue={initialInvestment}
 						onChange={onChange}
+						required
 					/>
 				</p>
 
@@ -30,6 +31,7 @@ const UserInput = (props) => {
 						type="number"
 						defaultValue={annualInvestment}
 						onChange={onChange}
+						required
 					/>
 				</p>
 			</div>
@@ -42,6 +44,7 @@ const UserInput = (props) => {
 						type="number"
 						defaultValue={expectedReturn}
 						onChange={onChange}
+						required
 					/>
 				</p>
 
@@ -52,6 +55,7 @@ const UserInput = (props) => {
 						type="number"
 						defaultValue={duration}
 						onChange={onChange}
+						required
 					/>
 				</p>
 			</div>

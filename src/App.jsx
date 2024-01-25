@@ -4,14 +4,13 @@ import Header from './components/Header';
 import UserInput from './components/UserInput';
 import ResultsTable from './components/ResultsTable';
 
-import { calculateInvestmentResults } from './util/investment';
+// import { calculateInvestmentResults } from './util/investment';
 
 const INITIAL_INVESTMENT_DATA = {
 	initialInvestment: 10000,
-	annualInvestment: 300,
-	expectedReturn: 5.5,
-	duration: 12,
-	annualData: [],
+	annualInvestment: 1200,
+	expectedReturn: 6,
+	duration: 10,
 };
 
 const App = () => {
@@ -20,17 +19,10 @@ const App = () => {
 	);
 
 	const handleInvestmentDataChange = (event) => {
-		setInvestmentData((prevData) => {
-			const updatedInputData = {
-				...prevData,
-				[event.target.name]: event.target.value,
-			};
-			const annualData = calculateInvestmentResults(updatedInputData);
-			return {
-				...updatedInputData,
-				annualData,
-			};
-		});
+		setInvestmentData((prevData) => ({
+			...prevData,
+			[event.target.name]: parseFloat(event.target.value),
+		}));
 	};
 
 	return (
@@ -41,10 +33,7 @@ const App = () => {
 				onChange={handleInvestmentDataChange}
 			/>
 			{investmentData.duration > 0 ? (
-				<ResultsTable
-					initialInvestment={investmentData.initialInvestment}
-					results={investmentData.annualData}
-				/>
+				<ResultsTable inputData={investmentData} />
 			) : (
 				<p className="center">Duration must be greater than 0.</p>
 			)}
